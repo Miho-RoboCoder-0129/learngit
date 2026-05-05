@@ -17,7 +17,7 @@ class Listener(Node):
         4.QOS(队列长度)
         返回值：订阅对象
         """
-        self.sub = self.create_subscription(String, "chatter", self.do_cb, 10)
+        self.subscription = self.create_subscription(String, "chatter", self.do_cb, 10)
     def do_cb(self,msg):
         #3-2.解析并输出数据
         self.get_logger().info("订阅的数据:%s" % msg.data)
